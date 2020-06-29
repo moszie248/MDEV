@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+body {
+  background-color: lightslategray;
+  background: rgb(27, 23, 37);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 23, 37, 1) 0%,
+    rgba(83, 75, 98, 1) 86%
+  );
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem 0;
+  border-bottom: 1px solid #d1c7c7;
+  padding-bottom: 2rem;
+}
+.header-top h1 {
+  justify-self: start;
+  color: #D0BCD5;
+}
+
+ul.menu {
+  justify-self: end;
+  margin-top: 1rem;
+  display: flex;
+  font-size: 20px;
+  list-style: none; /* ลบbullet */
+}
+ul.menu li {
+  margin-right: 2rem;
+}
+ul.menu a {
+  color: #D0BCD5;
+  text-decoration: none;
+  transition: 0.3s;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+ul.menu a:hover {
+  color: #dddddf;
+  border-bottom: 2px solid #dddddf;
+}
+
+.section-grid {
+  border-bottom: 1px solid #d1c7c7;
+  padding-bottom: 2rem;
+  margin: 3rem 0 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+.section-image img {
+  box-shadow: black;
+  box-shadow: 5px 5px 5px rgb(54, 54, 54);
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.section-item {
+  font-size: 16px;
+}
+.section-item a {
+  text-decoration: none;
+}
+.section-item:hover {
+  transform: translateY(-5px) translateZ(0);
+}
+
+.section-info {
+  color: #D0BCD5;
+  margin-top: 1rem;
+  margin: 1rem;
+}
+.section-info h5 {
+  font-size: 18px;
+}
+
+footer {
+  margin-top: 1rem;
+}
+.footer-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+.footer-item {
+  color: #D0BCD5;
+}
+.footer-item p {
+  display: flex;
+  margin-top: 1rem;
+  font-size: 16px;
+}
+ul.foot {
+  margin-top: 1rem;
+  display: flex;
+  list-style: none; /* ลบbullet */
+}
+ul.foot li {
+  margin-right: 1rem;
+}
