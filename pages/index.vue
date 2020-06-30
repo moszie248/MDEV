@@ -1,35 +1,5 @@
 <template>
   <div class="container">
-    <div class="header-top">
-      <h1>M.2DEV</h1>
-      <ul class="menu">
-        <li>
-          <nuxt-link to="/">
-            Today News
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/profile/profile">
-            Profile
-          </nuxt-link>
-        </li>
-        <li>
-          <a href="https://github.com/moszie248">
-            comming
-          </a>
-        </li>
-        <!-- <li>
-          <a href="https://github.com/moszie248">
-            comming
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/moszie248">
-            comming
-          </a>
-        </li> -->
-      </ul>
-    </div>
     <div class="section-grid">
       <div v-for="News in AllNews" :key="News.id" class="section-item">
         <a :href="News.url">
@@ -80,9 +50,7 @@
 <script>
 export default {
   async asyncData ({ app }) {
-    const ResNews = await app.$axios.$get(
-      'https://newsapi.org/v2/top-headlines?country=us'
-    )
+    const ResNews = await app.$axios.$get('/api/top-headlines?country=us')
     return { AllNews: ResNews.articles }
   }
 }

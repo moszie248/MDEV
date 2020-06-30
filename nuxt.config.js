@@ -52,16 +52,22 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    credentials: true
+    credentials: true,
+    proxy: true
   },
   proxy: {
+    '/api/': {
+      target: 'https://newsapi.org/v2',
+      pathRewrite: { '^/api/': '' }
+    },
     '/register/': {
       target: 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDTQ-cgs06Wc6VecIjoqObxQUsHSLbMi1A',
       pathRewrite: { '^/register/': '' }
