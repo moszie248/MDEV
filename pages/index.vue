@@ -49,9 +49,17 @@
 
 <script>
 export default {
-  async asyncData ({ app }) {
-    const ResNews = await app.$axios.$get('/api/top-headlines?country=us')
-    return { AllNews: ResNews.articles }
+  // async asyncData ({ app }) {
+  //   const ResNews = await app.$axios.$get('/api/top-headlines?country=us')
+  //   return { AllNews: ResNews.articles }
+  // }
+  async fetch ({ store }) {
+    await store.dispatch('loadNews', '/api/top-headlines?country=us')
+  },
+  computed: {
+    AllNews () {
+      return this.$store.getters.AllNews
+    }
   }
 }
 </script>

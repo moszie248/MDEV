@@ -1,42 +1,32 @@
 <template>
   <div class="container">
-    <!-- <div class="header-top">
+    <div class="header-top">
       <h1>M.2DEV</h1>
       <ul class="menu">
+        <!-- <input type="checkbox" id="menuToggle" />
+          <label class="menu-icon"><span>x</span></label> -->
         <li>
           <nuxt-link to="/">
             Today News
           </nuxt-link>
         </li>
+        <!-- <li>
+            <nuxt-link to="/profile/profile">
+              Profile
+            </nuxt-link>
+          </li> -->
         <li>
-          <nuxt-link to="/profile/profile">
-            Profile
+          <nuxt-link to="/login">
+            Login
           </nuxt-link>
         </li>
         <li>
-          <a href="https://github.com/moszie248">
-            comming
-          </a>
+          <nuxt-link to="/register">
+            Logout
+          </nuxt-link>
         </li>
       </ul>
-    </div> -->
-    <header>
-      <figure class="brand">Responsive</figure>
-      <nav class="menu">
-        <input type="checkbox" id="menuToggle" />
-        <label class="menu-icon"><i class="fa fa-bars"/></label>
-        <ul>
-          <a
-            href="http://stackoverflow.com/questions/9191803/why-does-z-index-not-work"
-            ><li>Home</li></a
-          >
-          <a href="#"><li>Sobre</li></a>
-          <a href="#"><li>Serviços</li></a>
-          <a href="#"><li>Equipe</li></a>
-          <a href="#"><li>Contato</li></a>
-        </ul>
-      </nav>
-    </header>
+    </div>
     <Nuxt />
   </div>
 </template>

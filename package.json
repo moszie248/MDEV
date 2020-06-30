@@ -14,7 +14,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/proxy": "^2.0.0",
-    "nuxt": "^2.13.0"
+    "nuxt": "^2.13.0",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
