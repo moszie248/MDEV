@@ -22,7 +22,7 @@
         </li>
         <li>
           <nuxt-link to="/register">
-            Logout
+            register
           </nuxt-link>
         </li>
       </ul>
