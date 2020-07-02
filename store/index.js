@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 // eslint-disable-next-line no-unused-vars
 import md5 from 'md5'
+import db from '~/plugins/firestore'
 
 // eslint-disable-next-line no-unused-vars
 const createStore = () => {
@@ -37,6 +38,7 @@ const createStore = () => {
           // eslint-disable-next-line no-console
           const avatar = `http://gravatar.com/avatar/${md5(authUserData.email)}?d=identicon`
           const user = { email: authUserData.email, avatar }
+          await db.collection('users').doc(userPayload.email).set(user)
           commit('setUser', user)
           commit('setToken', authUserData.idToken)
           commit('setLoading', false)

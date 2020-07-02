@@ -29,6 +29,7 @@ body {
   padding-bottom: 2rem;
 }
 .header-top h1 {
+  margin-top: .5rem;
   justify-self: start;
   color: #d0bcd5;
 }
