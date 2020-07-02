@@ -49,6 +49,15 @@ ul.menu li img {
   width: 40px;
   height: 40px;
 }
+ul.menu li button {
+  border-radius: 2rem;
+  padding: 5px;
+  font-size: 15px;
+}
+ul.menu li button:hover {
+  background-color: #d0bcd5;
+  cursor: pointer;
+}
 ul.menu a {
   color: #d0bcd5;
   text-decoration: none;
