@@ -1,21 +1,46 @@
 <template>
   <div>
-    <h1>register</h1>
-    <form @submit.prevent="registerUser">
-      <label for="email">Email</label>
-      <input :disabled="Loading" id="email" type="text" name="email" v-model="form.email" >
-      <label for="pass">password</label>
-      <input :disabled="Loading" id="pass" type="password" name="pass" v-model="form.pass" >
-      <button type="submit" :disabled="Loading">submit</button>
-    </form>
-    <!-- <div :md-activate.sync="isAuthenticated">
-      {{ form.email }} was successfully!
+    <div class="login-page">
+      <div class="form">
+        <h1>REGISTER</h1>
+        <form @submit.prevent="registerUser">
+          <label for="email">Email</label>
+          <input :disabled="Loading" id="email" type="text" name="email" v-model="form.email" >
+          <label for="pass">password</label>
+          <input :disabled="Loading" id="pass" type="password" name="pass" v-model="form.pass" >
+          <button type="submit" :disabled="Loading">submit</button>
+          <p class="message">Already registered? <a href="/login">Sign In</a></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- <div class="login-page"> -->
+    <!-- <div class="form">
+      <form class="register-form" @submit.prevent="registerUser">
+        <input
+          :disabled="Loading"
+          :v-model="form.email"
+          id="email"
+          type="text"
+          name="email">
+        <input
+          :disabled="Loading"
+          :v-model="form.pass"
+          id="pass"
+          type="password"
+          name="pass">
+        <button type="submit" :disabled="Loading">submit</button>
+        <p class="message">Already registered? <a href="/login">Sign In</a></p>
+      </form>
     </div> -->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
+// import $ from 'jquery'
 export default {
+  middleware: 'auth',
   data: () => ({
     form: {
       email: '',
@@ -35,7 +60,7 @@ export default {
       if (value) {
         // eslint-disable-next-line no-console
         console.log(value)
-        setTimeout(() => this.$route.push('/'), 2000)
+        setTimeout(() => this.$router.push('/'), 500)
       }
     }
   },

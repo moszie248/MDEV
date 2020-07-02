@@ -49,16 +49,20 @@
 
 <script>
 export default {
+  middleware: 'index',
   // async asyncData ({ app }) {
   //   const ResNews = await app.$axios.$get('/api/top-headlines?country=us')
   //   return { AllNews: ResNews.articles }
   // }
   async fetch ({ store }) {
-    await store.dispatch('loadNews', '/api/top-headlines?country=us')
+    await store.dispatch('loadNews', '/api/top-headlines?country=th')
   },
   computed: {
     AllNews () {
       return this.$store.getters.AllNews
+    },
+    isAuthenticated () {
+      return this.$store.getters.isAuthenticated
     }
   }
 }

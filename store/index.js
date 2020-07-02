@@ -1,4 +1,6 @@
 import Vuex from 'vuex'
+// eslint-disable-next-line no-unused-vars
+import md5 from 'md5'
 
 // eslint-disable-next-line no-unused-vars
 const createStore = () => {
@@ -6,7 +8,8 @@ const createStore = () => {
     state: {
       AllNews: [],
       Loading: false,
-      Token: ''
+      Token: '',
+      user: null
     },
     mutations: {
       setNews (state, AllNews) {
@@ -17,6 +20,9 @@ const createStore = () => {
       },
       setToken (state, Token) {
         state.Token = Token
+      },
+      setUser (state, user) {
+        state.user = user
       }
     },
     actions: {
@@ -29,7 +35,9 @@ const createStore = () => {
           commit('setLoading', true)
           const authUserData = await this.$axios.$post('/register/', userPayload)
           // eslint-disable-next-line no-console
-          console.log(authUserData)
+          const avatar = `http://gravatar.com/avatar/${md5(authUserData.email)}?d=identicon`
+          const user = { email: authUserData.email, avatar }
+          commit('setUser', user)
           commit('setToken', authUserData.idToken)
           commit('setLoading', false)
         } catch (err) {
@@ -42,7 +50,8 @@ const createStore = () => {
     getters: {
       AllNews: state => state.AllNews,
       Loading: state => state.Loading,
-      isAuthenticated: state => !!state.Token
+      isAuthenticated: state => !!state.Token,
+      user: state => state.user
     }
   })
 }
