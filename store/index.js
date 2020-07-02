@@ -2,6 +2,7 @@ import Vuex from 'vuex'
 // eslint-disable-next-line no-unused-vars
 import md5 from 'md5'
 import db from '~/plugins/firestore'
+import { saveUserData, clearUserData } from '~/utils'
 
 // eslint-disable-next-line no-unused-vars
 const createStore = () => {
@@ -24,7 +25,9 @@ const createStore = () => {
       },
       setUser (state, user) {
         state.user = user
-      }
+      },
+      clearToken: state => (state.Token = ''),
+      clearUser: state => (state.user = null)
     },
     actions: {
       async loadNews ({ commit }, apiUrl) {
@@ -54,11 +57,20 @@ const createStore = () => {
           commit('setUser', user)
           commit('setToken', authUserData.idToken)
           commit('setLoading', false)
+          saveUserData(authUserData, user)
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err)
           commit('setLoading', false)
         }
+      },
+      setLogoutTimer ({ dispatch }, interval) {
+        setTimeout(() => dispatch('logoutUser'), interval)
+      },
+      logoutUser ({ commit }) {
+        commit('clearToken')
+        commit('clearUser')
+        clearUserData()
       }
     },
     getters: {

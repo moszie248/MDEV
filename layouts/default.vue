@@ -22,9 +22,10 @@
           <a>{{ user.email }}</a>
         </li>
         <li v-if="isAuthenticated">
-          <nuxt-link to="/login">
+          <!-- <nuxt-link>
             Logout
-          </nuxt-link>
+          </nuxt-link> -->
+          <button @click="logoutUser">logout</button>
         </li>
         <!-- <li v-if="isAuthenticated==false">
           <nuxt-link to="/login">
@@ -49,6 +50,12 @@ export default {
     },
     isAuthenticated () {
       return this.$store.getters.isAuthenticated
+    }
+  },
+  methods: {
+    logoutUser () {
+      this.$store.dispatch('logoutUser')
+      setTimeout(() => this.$router.push('/register/'), 100)
     }
   }
 }
